@@ -1,6 +1,6 @@
 package com.legalmanager.agenda.model;
 
-import com.legalmanager.agenda.enums.AgendaType;
+import com.legalmanager.agenda.enums.TipoAgenda;
 import com.legalmanager.agenda.enums.Status;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,10 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-public class Agenda {
+public class Agenda implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -25,15 +26,15 @@ public class Agenda {
 
     @Getter
     @Setter
-    private LocalDate startDate;
+    private LocalDate dataInicio;
 
     @Getter
     @Setter
-    private AgendaType type;
+    private TipoAgenda tipo;
 
     @Getter
     @Setter
-    private String description;
+    private String descricao;
 
     @Getter
     @Setter
